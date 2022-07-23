@@ -7,15 +7,16 @@ struct Time
 {
 	int hour;
 	int minute;
+	int second;
 
-	Time(int hour, int minute) : hour(hour), minute(minute) {};
+	Time(int hour, int minute, int second) : hour(hour), minute(minute), second(second) {};
 	Time();
 
 	static Time build(std::string);
 	static bool compare(Time, Time);
 };
 
-const Time INVALID_TIME = Time(-1, -1);
+const Time INVALID_TIME = Time(-1, -1, -1);
 
 
 struct TimeRange

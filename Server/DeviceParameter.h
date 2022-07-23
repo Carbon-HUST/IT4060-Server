@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <typeinfo>
+#include "Validation.h"
 
 enum DeviceParameterType 
 {
@@ -15,10 +16,12 @@ class DeviceParameter
 {
 private:
 	std::string name;
+	std::string fullName;
 	DeviceParameterType parameterType;
 public:
-	DeviceParameter(std::string name, DeviceParameterType parameterType);
+	DeviceParameter(std::string name, std::string fullName, DeviceParameterType parameterType);
 	std::string getName();
+	std::string getFullName();
 	DeviceParameterType getParameterType();
 	virtual bool setValue(std::string value) = 0;
 	virtual std::string getValue() = 0; 
@@ -39,6 +42,56 @@ public:
 		// validate
 		// cast string to T
 		// assign to value
+
+		switch (typeid(T))
+		{
+		case typeid(int) :
+			int tmp;
+			if (isInt(value, tmp))
+			{
+				value = tmp;
+				break;
+			}
+			else
+				return false;
+
+		case typeid(double) :
+			double tmp;
+			if (isDouble(value, tmp))
+			{
+				value = tmp;
+				break;
+			}
+			else
+				return false;
+		
+		case typeid(Time) :
+			Time tmp;
+			if (isTime(value, tmp))
+			{
+				value = tmp;
+				break;
+			}
+			else
+				return false;
+
+		case typeid(TimeRange) :
+			TimeRange tmp;
+			if (isTimeRange(value, tmp))
+			{
+				value = tmp;
+				break;
+			}
+			else
+				return 0;
+
+
+		default:
+			break;
+		}
+
+
+
 		return true;
 	}
 
