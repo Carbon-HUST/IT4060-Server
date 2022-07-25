@@ -17,7 +17,7 @@ struct Time
 };
 
 const Time INVALID_TIME = Time(-1, -1, -1);
-
+inline bool operator==(const Time &t1, const Time &t2);
 
 struct TimeRange
 {
@@ -31,5 +31,6 @@ struct TimeRange
 };
 
 const TimeRange INVALID_TIMERANGE = TimeRange(INVALID_TIME, INVALID_TIME);
+inline bool operator==(const TimeRange &tr1, const TimeRange &tr2);
 
 #endif // !TIME_H

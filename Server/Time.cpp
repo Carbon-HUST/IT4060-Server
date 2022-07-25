@@ -9,6 +9,16 @@ Time::Time()
 	second = 0;
 }
 
+inline bool operator==(const Time &t1, const Time &t2)
+{
+	return t1.hour == t2.hour && t1.minute == t2.minute && t1.second == t2.second;
+}
+
+inline bool operator==(const TimeRange & tr1, const TimeRange & tr2)
+{
+	return tr1.start == tr2.start && tr1.end == tr2.end;
+}
+
 Time Time::build(std::string strTime)
 {
 	std::vector<std::string> splitStrs;
@@ -58,7 +68,20 @@ TimeRange::TimeRange()
 
 TimeRange TimeRange::build(std::string strTimeRange)
 {
-	return TimeRange(Time(1, 20, 0), Time(4, 56, 0));
+	// HH:mm:ss HH:mm:ss
+	if (strTimeRange.length() != 17)
+		return INVALID_TIMERANGE;
+	Time start, end;
+	start = Time::build(strTimeRange.substr(0, 8));
+	end = Time::build(strTimeRange.substr(9, 8));
+	
+	// start or end is invalid or start time is greater than end time
+	if (start == INVALID_TIME || end == INVALID_TIME || !Time::compare(start, end))
+	{
+		return INVALID_TIMERANGE;
+	}
+	else
+		return TimeRange(start, end);
 }
 
 TimeRange TimeRange::merge(TimeRange tr1, TimeRange tr2)
