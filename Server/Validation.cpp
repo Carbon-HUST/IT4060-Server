@@ -67,11 +67,11 @@ bool isTime(std::string value, Time & out)
 
 bool isTimeRange(std::string value, TimeRange & out)
 {
-	// Time range HH:mm:ss HH:mm:ss --> length = 17
+	// Time range HH:mm:ss#HH:mm:ss --> length = 17
 	if (value.length() != 17)
 		return false;
 
-	if (value[8] != ' ')
+	if (value[8] != '#')
 		return false;
 
 	std::string startStrTime = value.substr(0, 8);

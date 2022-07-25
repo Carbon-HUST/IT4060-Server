@@ -20,6 +20,5 @@ public:
 	double getValue();
 };
 
-double getEnvironmentParameterValue(std::vector<EnvironmentParameter>& evParam, std::string name, bool& isFound);
 
 #endif // !ENVIRONMENT_PARAMETER_H

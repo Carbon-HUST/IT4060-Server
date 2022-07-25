@@ -62,4 +62,20 @@ std::string Device::getName()
 {
 	return name;
 }
+
+std::string Device::getParameter(std::string name)
+{
+	std::string retVal = "";
+	for (DeviceParameter* param : parameters)
+	{
+		if (name == param->getName())
+		{
+				retVal = param->getValue();
+				return retVal;
+		}
+	}
+	return retVal;
+
+}
+
 ;

@@ -50,7 +50,7 @@ public:
 			int tmp;
 			if (isInt(value, tmp))
 			{
-				value = tmp;
+				this->value = tmp;
 				break;
 			}
 			else
@@ -60,7 +60,7 @@ public:
 			double tmp;
 			if (isDouble(value, tmp))
 			{
-				value = tmp;
+				this->value = tmp;
 				break;
 			}
 			else
@@ -70,7 +70,7 @@ public:
 			Time tmp;
 			if (isTime(value, tmp))
 			{
-				value = tmp;
+				this->value = tmp;
 				break;
 			}
 			else
@@ -80,7 +80,7 @@ public:
 			TimeRange tmp;
 			if (isTimeRange(value, tmp))
 			{
-				value = tmp;
+				this->value = tmp;
 				break;
 			}
 			else
