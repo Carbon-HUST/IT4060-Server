@@ -86,5 +86,74 @@ TimeRange TimeRange::build(std::string strTimeRange)
 
 TimeRange TimeRange::merge(TimeRange tr1, TimeRange tr2)
 {
-	return INVALID_TIMERANGE;
+	if (Time::compare(tr1.end, tr2.start) || Time::compare(tr2.end, tr1.start))
+		return INVALID_TIMERANGE;
+	if (tr1.start == tr2.start)
+	{
+		if (Time::compare(tr1.end, tr2.end))
+			return tr2;
+		else
+			return tr1;
+	}
+	if (Time::compare(tr1.start, tr2.start))
+	{
+		if (Time::compare(tr2.end, tr1.end))
+			return tr1;
+		else
+			return TimeRange(tr1.start, tr2.end);
+	}
+	else if (Time::compare(tr2.start, tr1.start))
+	{
+		if (Time::compare(tr1.end, tr2.end))
+			return tr2;
+		else
+			return TimeRange(tr2.start, tr1.end);
+	}
+}
+
+std::vector<TimeRange> addTimeRangeToArray(std::vector<TimeRange>& v, TimeRange tr)
+{
+	bool flag = false;
+	for (int i = 0; i < v.size(); i++)
+	{
+		TimeRange TimeRangeMerge = TimeRange::merge(v[i], tr);
+		if (v[i].start == TimeRangeMerge.start && v[i].end == TimeRangeMerge.end)
+		{
+			v.erase(v.begin() + i - 1);
+			continue;
+		}
+
+		if (TimeRangeMerge.start == INVALID_TIME)
+			continue;
+		else
+		{
+			flag = true;
+			if (Time::compare(v[i].end, TimeRangeMerge.end))
+			{
+				for (int j = i; j < v.size(); j++)
+				{
+					TimeRange tr1 = TimeRange::merge(TimeRangeMerge, v[j]);
+					if (tr1.start == INVALID_TIME)
+						continue;
+					else
+						v[j] = tr1;
+				}
+			}
+			else v[i] = TimeRangeMerge;
+		}
+		v.erase(std::unique(v.begin(), v.end(), [](TimeRange a, TimeRange b)
+		{
+			return (a.start == b.start) && (a.end == b.end);
+		}), v.end());
+	}
+	if (flag == false)
+	{
+		v.push_back(tr);
+		std::sort(v.begin(), v.end(), [](TimeRange tr1, TimeRange tr2)
+		{
+			return Time::compare(tr1.start, tr2.start);
+		});
+	}
+
+	return v;
 }

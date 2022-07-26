@@ -32,5 +32,6 @@ struct TimeRange
 
 const TimeRange INVALID_TIMERANGE = TimeRange(INVALID_TIME, INVALID_TIME);
 inline bool operator==(const TimeRange &tr1, const TimeRange &tr2);
+std::vector<TimeRange> addTimeRangeToArray(std::vector<TimeRange>&, TimeRange);
 
 #endif // !TIME_H
