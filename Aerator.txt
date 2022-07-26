@@ -1,0 +1,5 @@
+1 123 maysuc Aerator
+2 
+C double Fan Speed 1000
+TR TimeRange 2:22:22#5:55:55
+

@@ -44,15 +44,18 @@ bool readDevice(std::string fileName, Device * device, std::string password)
 				removeString(line);
 				std::string typeOfParam = line.substr(0, line.find(' ', 0));
 				removeString(line);
-				std::string fullName = line;
+				std::string fullName = line.substr(0, line.find_last_of(' '));
+				std::string value = line.substr(line.find_last_of(' ') + 1);
+				
 				if (name.size() == 1)
 				{
-					SingleDeviceParameter<double> *param = new SingleDeviceParameter<double>(name, fullName, 0);
+					SingleDeviceParameter<double> *param = new SingleDeviceParameter<double>(name, fullName, stoi(value));
 					parameters.push_back(param);
 				}
 				else if (name.size() == 2)
 				{
 					std::vector<TimeRange> trs;
+					trs.push_back(TimeRange::build(value));
 					MultipleDeviceParameter<TimeRange> *param = new MultipleDeviceParameter<TimeRange>(name, fullName, trs);
 					parameters.push_back(param);
 				}
@@ -70,16 +73,17 @@ bool readDevice(std::string fileName, Device * device, std::string password)
 				removeString(line);
 				std::string typeOfParam = line.substr(0, line.find(' ', 0));
 				removeString(line);
-				std::string fullName = line;
+				std::string fullName = line.substr(0, line.find_last_of(' '));
+				std::string value = line.substr(line.find_last_of(' ') + 1);
 				if (typeOfParam == "double")
 				{
-					SingleDeviceParameter<double> *param = new SingleDeviceParameter<double>(name, fullName, 0);
+					SingleDeviceParameter<double> *param = new SingleDeviceParameter<double>(name, fullName, stoi(value));
 					parameters.push_back(param);
 				}
 				else if (typeOfParam == "int")
 				{
 
-					SingleDeviceParameter<int> *param = new SingleDeviceParameter<int>(name, fullName, 0);
+					SingleDeviceParameter<int> *param = new SingleDeviceParameter<int>(name, fullName, stoi(value));
 					parameters.push_back(param);
 				}
 			}
@@ -96,15 +100,17 @@ bool readDevice(std::string fileName, Device * device, std::string password)
 				removeString(line);
 				std::string typeOfParam = line.substr(0, line.find(' ', 0));
 				removeString(line);
-				std::string fullName = line;
+				std::string fullName = line.substr(0, line.find_last_of(' '));
+				std::string value = line.substr(line.find_last_of(' ') + 1);
 				if (name.size() == 1)
 				{
-					SingleDeviceParameter<double> *param = new SingleDeviceParameter<double>(name, fullName, 0);
+					SingleDeviceParameter<double> *param = new SingleDeviceParameter<double>(name, fullName, stoi(value));
 					parameters.push_back(param);
 				}
 				else if (name.size() == 2)
 				{
 					std::vector<Time> tps;
+					tps.push_back(Time::build(value));
 					MultipleDeviceParameter<Time> *param = new MultipleDeviceParameter<Time>(name, fullName, tps);
 					parameters.push_back(param);
 				}
@@ -123,10 +129,11 @@ bool readDevice(std::string fileName, Device * device, std::string password)
 				removeString(line);
 				std::string typeOfParam = line.substr(0, line.find(' ', 0));
 				removeString(line);
-				std::string fullName = line;
+				std::string fullName = line.substr(0, line.find_last_of(' '));
+				std::string value = line.substr(line.find_last_of(' ') + 1);
 				if (name.size() == 1)
 				{
-					SingleDeviceParameter<double> *param = new SingleDeviceParameter<double>(name, fullName, 0);
+					SingleDeviceParameter<double> *param = new SingleDeviceParameter<double>(name, fullName, stoi(value));
 					parameters.push_back(param);
 				}
 			}
