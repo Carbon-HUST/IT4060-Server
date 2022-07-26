@@ -61,6 +61,7 @@ bool SingleDeviceParameter<int>::setValue(std::string value)
 	if (!isInt(value, tmp))
 		return false;
 	this->value = tmp;
+	return true;
 }
 
 template<>
@@ -70,6 +71,7 @@ bool SingleDeviceParameter<double>::setValue(std::string value)
 	if (!isDouble(value, tmp))
 		return false;
 	this->value = tmp;
+	return true;
 }
 
 template<>
@@ -88,6 +90,7 @@ bool SingleDeviceParameter<TimeRange>::setValue(std::string value)
 	if (!isTimeRange(value, tmp))
 		return false;
 	this->value = tmp;
+	return true;
 }
 
 

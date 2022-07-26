@@ -78,4 +78,18 @@ std::string Device::getParameter(std::string name)
 
 }
 
+
+DeviceParameter * Device::getParameterReference(std::string name)
+{
+	for (DeviceParameter* param : parameters)
+	{
+		if (name == param->getName())
+		{
+			return param;
+		}
+	}
+	return nullptr;
+}
+
+
 ;

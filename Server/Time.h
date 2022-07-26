@@ -18,6 +18,8 @@ struct Time
 
 const Time INVALID_TIME = Time(-1, -1, -1);
 inline bool operator==(const Time &t1, const Time &t2);
+inline bool operator>(const Time &t1, const Time &t2);
+inline bool operator<(const Time &t1, const Time &t2);
 
 struct TimeRange
 {

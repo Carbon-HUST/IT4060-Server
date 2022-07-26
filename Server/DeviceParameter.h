@@ -86,12 +86,9 @@ public:
 			else
 				return false;
 
-
 		default:
 			return false;
 		}
-
-
 
 		return true;
 	}
@@ -120,6 +117,13 @@ public:
 	{
 		return typeid(T).name();
 	}
+
+	//get parameter (real value in memory)
+	T getParameter()
+	{
+		return this->value;
+	}
+
 };
 
 
@@ -249,5 +253,12 @@ public:
 		}
 		return false;
 	}
+
+	//get parameter (real value in memory)
+	std::vector<int, T> getParameters()
+	{
+		return this->values;
+	}
+
 };
 #endif // !DEVICE_PARAMETER_H

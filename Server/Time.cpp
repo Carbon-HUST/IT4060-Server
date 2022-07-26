@@ -14,6 +14,16 @@ inline bool operator==(const Time &t1, const Time &t2)
 	return t1.hour == t2.hour && t1.minute == t2.minute && t1.second == t2.second;
 }
 
+inline bool operator>(const Time & t1, const Time & t2)
+{
+	return t1.hour > t2.hour || (t1.hour == t2.hour && t1.minute > t2.minute) || (t1.hour == t2.hour && t1.minute == t2.minute && t1.second > t2.second);
+}
+
+inline bool operator<(const Time & t1, const Time & t2)
+{
+	return t1.hour < t2.hour || (t1.hour == t2.hour && t1.minute < t2.minute) || (t1.hour == t2.hour && t1.minute == t2.minute && t1.second < t2.second);
+}
+
 inline bool operator==(const TimeRange & tr1, const TimeRange & tr2)
 {
 	return tr1.start == tr2.start && tr1.end == tr2.end;
