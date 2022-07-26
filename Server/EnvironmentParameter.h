@@ -14,7 +14,7 @@ private:
 	double max;
 
 public:
-	EnvironmentParameter(std::string name, std::string unitOfMeasurement);
+	EnvironmentParameter(std::string name, std::string unitOfMeasurement, double min, double max);
 	std::string getName();
 	std::string getUnitOfMeasurement();
 	double getValue();

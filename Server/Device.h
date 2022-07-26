@@ -22,6 +22,7 @@ public:
 	int getId();
 	std::string getName();
 	std::string getParameter(std::string name);
+	virtual std::string getDeviceType();
 };
 
 #endif // !DEVICE_H

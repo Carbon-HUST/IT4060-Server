@@ -1,6 +1,6 @@
 #include "Device.h"
 
-Device::Device(int id, std::string name, std::vector<DeviceParameter*> parameters): id(id), name(name), parameters(parameters)
+Device::Device(int id, std::string name, std::vector<DeviceParameter*> parameters) : id(id), name(name), parameters(parameters)
 {
 	status = false;
 }
@@ -70,12 +70,15 @@ std::string Device::getParameter(std::string name)
 	{
 		if (name == param->getName())
 		{
-				retVal = param->getValue();
-				return retVal;
+			retVal = param->getValue();
+			return retVal;
 		}
 	}
 	return retVal;
 
 }
 
-;
+std::string Device::getDeviceType()
+{
+	return "Device";
+}

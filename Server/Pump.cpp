@@ -8,8 +8,8 @@ Pump::Pump(int id, std::string name, std::vector<DeviceParameter*> parameters) :
 
 	// parameter of pump : V (flow rate) and operating time T	
 	SingleDeviceParameter<double> *flowRate = new SingleDeviceParameter<double>("V", "Flow Rate", 9);
-	SingleDeviceParameter<double> *operatingTime = new SingleDeviceParameter<double>("T", "Operating Time", 1);
-	
+	SingleDeviceParameter<int> *operatingTime = new SingleDeviceParameter<int>("T", "Operating Time", 1);
+
 	//add parameters when creating an instance of Pump
 	this->addParameter(flowRate);
 	this->addParameter(operatingTime);

@@ -5,5 +5,5 @@
 class QuicklimeDispenser : public Device
 {
 public:
-	QuicklimeDispenser(int id, std::string name, std::vector<DeviceParameter> parameters);
+	QuicklimeDispenser(int id, std::string name, std::vector<DeviceParameter*> parameters);
 };

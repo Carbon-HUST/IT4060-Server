@@ -6,5 +6,5 @@ class Feeder : public Device
 {
 
 public:
-	Feeder(int id, std::string name, std::vector<DeviceParameter> parameters);
+	Feeder(int id, std::string name, std::vector<DeviceParameter*> parameters);
 };

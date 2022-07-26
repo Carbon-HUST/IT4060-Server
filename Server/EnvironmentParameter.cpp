@@ -1,6 +1,6 @@
 #include "EnvironmentParameter.h"
 
-EnvironmentParameter::EnvironmentParameter(std::string name, std::string unitOfMeasurement)
+EnvironmentParameter::EnvironmentParameter(std::string name, std::string unitOfMeasurement, double min, double max)
 	: name(name), unitOfMeasurement(unitOfMeasurement)
 {
 }
