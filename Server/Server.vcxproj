@@ -147,12 +147,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AccountHandler.h" />
+    <ClInclude Include="Aerator.h" />
     <ClInclude Include="Device.h" />
     <ClInclude Include="DeviceParameter.h" />
     <ClInclude Include="EnvironmentParameter.h" />
+    <ClInclude Include="Feeder.h" />
     <ClInclude Include="IOHelper.h" />
     <ClInclude Include="MessageHandler.h" />
     <ClInclude Include="ProtocolHandler.h" />
+    <ClInclude Include="Pump.h" />
+    <ClInclude Include="QuicklimeDispenser.h" />
     <ClInclude Include="Sensor.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Utility.h" />
@@ -160,12 +164,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AccountHandler.cpp" />
+    <ClCompile Include="Aerator.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="DeviceParameter.cpp" />
     <ClCompile Include="EnvironmentParameter.cpp" />
+    <ClCompile Include="Feeder.cpp" />
     <ClCompile Include="IOHelper.cpp" />
     <ClCompile Include="MessageHandler.cpp" />
     <ClCompile Include="ProtocolHandler.cpp" />
+    <ClCompile Include="Pump.cpp" />
+    <ClCompile Include="QuicklimeDispenser.cpp" />
     <ClCompile Include="Sensor.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="Time.cpp" />

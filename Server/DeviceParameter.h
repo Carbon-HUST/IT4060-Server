@@ -37,7 +37,7 @@ private:
 	T value;
 
 public:
-	SingleDeviceParameter(std::string name, T value) : DeviceParameter(name, DeviceParameterType::Single), value(value) {};
+	SingleDeviceParameter(std::string name, std::string fullName, T value) : DeviceParameter(name, fullName, DeviceParameterType::Single), value(value) {};
 	bool setValue(std::string value)
 	{
 		// validate
@@ -129,7 +129,7 @@ class MultipleDeviceParameter : public DeviceParameter
 private:
 	std::vector<std::pair<int, T>> values;
 public:
-	MultipleDeviceParameter(std::string name, std::vector<T> values) : DeviceParameter(name, DeviceParameterType::Multiple), values(values) {};
+	MultipleDeviceParameter(std::string name, std::string fullName, std::vector<T> values) : DeviceParameter(name, std::string fullName, DeviceParameterType::Multiple), values(values) {};
 
 	bool setValue(std::string value)
 	{

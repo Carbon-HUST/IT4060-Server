@@ -7,7 +7,7 @@
 #include "EnvironmentParameter.h"
 #include <string>
 
-class Sensor : Device 
+class Sensor : public Device 
 {
 private:
 	std::vector <EnvironmentParameter*> enviromentVariables;
